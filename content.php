@@ -19,14 +19,14 @@ if(isset($_POST['f_Name'])){
 		if($lastName== "" && $lastName == null){
 			$lastNameErr="please enter your last name";
 		}
-	// E-mail	
+	// E-mail Refered from your code	
 		echo $email;
 			if($email == "" && $email == null){
 			$emailerr = "Please enter email";
 		}
 			elseif (!filter_input(INPUT_POST, 'email',
 			FILTER_VALIDATE_EMAIL)){
-			$emailerr = "Please enter valid email";
+			$emailerr = "Please enter valid email address";
 		}
 		else {
         $emailerr ="";
@@ -37,7 +37,7 @@ if(isset($_POST['f_Name'])){
 			$passwordERR="Please enter password";
 		}
 		elseif(!preg_match($pattern, $password)){
-			echo "please enter password with letter and numbers";
+			echo "please enter password that contains  letter and numbers";
 		}	
 		else {
         echo "Valid password";
@@ -46,7 +46,7 @@ if(isset($_POST['f_Name'])){
 		echo $c_password;
 		if($c_password == "" && $c_password == null)
 		{
-			$c_passwordErr ="you must enter a password";
+			$c_passwordErr ="you must enter password that matches password you enterd";
 		}
 		
 	}
