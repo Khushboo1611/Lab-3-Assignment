@@ -1,9 +1,7 @@
 <?php
 $firstName = $lastName =  $email = $password = $con_password = "";
 if(isset($_POST['f_Name'])){
-
-
-  /************ Variables ***************/
+/************ Variables ***************/
 	$firstName = $_POST['f_Name'];
 	$lastName = $_POST['l_Name'];
     $email = $_POST['email'];
@@ -12,18 +10,18 @@ if(isset($_POST['f_Name'])){
 /*********** Validation*****************/
 	// First Name //
 		echo $firstName;
-		if($firstName == "")
+		if($firstName == "" && $firstName == null)
 		{
 			$firstNameErr="Please enter your first Name";
 		}
 	// Last Name //
 		echo $lastName;
-		if($lastName== ""){
+		if($lastName== "" && $lastName == null){
 			$lastNameErr="please enter your last name";
 		}
 	// E-mail	
 		echo $email;
-			if($email == ""){
+			if($email == "" && $email == null){
 			$emailerr = "Please enter email";
 		}
 			elseif (!filter_input(INPUT_POST, 'email',
@@ -35,7 +33,7 @@ if(isset($_POST['f_Name'])){
 		}
 	// Password <!-- Pattern from your code-->
 		$pattern = "/[a-zA-Z0-9]{3,8}/";
-		if($password == ""){
+		if($password == "" && $password == null){
 			$passwordERR="Please enter password";
 		}
 		elseif(!preg_match($pattern, $password)){
@@ -46,7 +44,7 @@ if(isset($_POST['f_Name'])){
 		}
 	// confirm passowrd
 		echo $c_password;
-		if($c_password == "")
+		if($c_password == "" && $c_password == null)
 		{
 			$c_passwordErr ="you must enter a password";
 		}
@@ -119,7 +117,7 @@ if(isset($_POST['f_Name'])){
 						}
 					?>
 		</span>
-<br/>
+		<br/>
 
     <input type="submit" value="Submit" />
 
