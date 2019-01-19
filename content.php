@@ -1,55 +1,56 @@
 <?php
 $firstName = $lastName =  $email = $password = $con_password = "";
 if(isset($_POST['f_Name'])){
+
 /************ Variables ***************/
-	$firstName = $_POST['f_Name'];
-	$lastName = $_POST['l_Name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-	$c_password = $_POST['con_password'];
+  $firstName = $_POST['f_Name']; 
+  $lastName = $_POST['l_Name'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $c_password = $_POST['con_password'];
+
 /*********** Validation*****************/
-	// First Name //
-		echo $firstName;
-		if($firstName == "" && $firstName == null)
-		{
-			$firstNameErr="Please enter your first Name";
-		}
-	// Last Name //
-		echo $lastName;
-		if($lastName== "" && $lastName == null){
-			$lastNameErr="please enter your last name";
-		}
-	// E-mail Refered from your code	
-		echo $email;
-			if($email == "" && $email == null){
-			$emailerr = "Please enter email";
-		}
-			elseif (!filter_input(INPUT_POST, 'email',
-			FILTER_VALIDATE_EMAIL)){
-			$emailerr = "Please enter valid email address";
-		}
-		else {
-        $emailerr ="";
-		}
-	// Password <!-- Pattern from your code-->
-		$pattern = "/[a-zA-Z0-9]{3,8}/";
-		if($password == "" && $password == null){
-			$passwordERR="Please enter password";
-		}
-		elseif(!preg_match($pattern, $password)){
-			echo "please enter password that contains  letter and numbers";
-		}	
-		else {
-        echo "Valid password";
-		}
-	// confirm passowrd
-		echo $c_password;
-		if($c_password == "" && $c_password == null)
-		{
-			$c_passwordErr ="you must enter password that matches password you enterd";
-		}
-		
+   // First Name //
+	echo $firstName;
+	if($firstName == "" && $firstName == null){
+	 $firstNameErr="Please enter your first Name";
+	 }
+  // Last Name //
+	echo $lastName;
+	if($lastName== "" && $lastName == null){
+	$lastNameErr="please enter your last name";
 	}
+  // E-mail Refered from your code	
+	echo $email;
+	if($email == "" && $email == null){
+	$emailerr = "Please enter email";
+	}
+	elseif (!filter_input(INPUT_POST, 'email',
+	FILTER_VALIDATE_EMAIL)){
+	$emailerr = "Please enter valid email address";
+	}
+	else {
+        $emailerr ="";
+	}
+   // Password <!-- Pattern from your code-->
+	$pattern = "/[a-zA-Z0-9]{3,8}/";
+	if($password == "" && $password == null){
+	$passwordERR="Please enter password";
+	}
+	elseif(!preg_match($pattern, $password)){
+	echo "please enter password that contains  letter and numbers";
+	}	
+	else {
+        echo "Valid password";
+	}
+  // confirm passowrd
+	echo $c_password;
+	if($c_password == "" && $c_password == null)
+	{
+	$c_passwordErr ="you must enter password that matches password you enterd";
+	}
+		
+}
 ?>
 <!-- content Starts here-->
 <div id="content">
@@ -63,7 +64,7 @@ if(isset($_POST['f_Name'])){
 		<p><label>First Name</label>
 			<input type="text"  id="input_f_Name" name="f_Name" value="<?php if(isset($firstName)){ echo $firstName; } ?>"/>
 				<span id="NameError"style="color:white;">
-					<?php if(isset($firstNameErr)) { echo $firstNameErr; } ?>
+				<?php if(isset($firstNameErr)) { echo $firstNameErr; } ?>
 				</span>
 		</p>
 
@@ -71,7 +72,7 @@ if(isset($_POST['f_Name'])){
 		<p><label for="input_l_Name">Last Name:</label><br>
 			<input type="text" id="input_l_Name" name="l_Name" value="<?php if(isset($lastName)){ echo $lastName; } ?>"/>
 				<span id="LastNameError" style="color:white;">
-					<?php if(isset($lastNameErr)){ echo $lastNameErr; } ?>
+				<?php if(isset($lastNameErr)){ echo $lastNameErr; } ?>
 				</span>
 		</p>
 	<!-- Gender -->	
@@ -98,33 +99,19 @@ if(isset($_POST['f_Name'])){
 		<p><label for="input_password">Password</label> <br/>
 			<input type="Password"  id="input_password" name="password" value="<?php if(isset($password)){ echo $password; } ?>">
 			<span style="color:white"> 
-			<?php
-						if(isset($passwordERR))
-						{
-						echo $passwordERR;
-						}
-					?>
-		</span>
+			<?php if(isset($passwordERR)) { echo $passwordERR; } ?>
+		        </span>
 		<br/>
 		<label for="confirm_passowrd">Confirm Password</label> 
 		<br/>
 		<input type="Password" id="confirm_passowrd" name="con_password" value="<?php if(isset($c_password)){ echo $c_password; } ?>">
 			<span style="color:white"> 
-			<?php
-						if(isset($c_passwordErr))
-						{
-						echo $c_passwordErr;
-						}
-					?>
-		</span>
+			<?php if(isset($c_passwordErr)) { echo $c_passwordErr; } ?>
+			</span>
 		<br/>
-
-    <input type="submit" value="Submit" />
-
-    </form>
-
-	<!-- Sign up form ends-->
-
+		<input type="submit" value="Submit" />
+	</form>
+<!-- Sign up form ends-->
 
 <!-- Display out put-->
 <div id="thanks_msg">
